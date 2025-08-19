@@ -37,34 +37,35 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
-            min-height: 400px;
-            display: flex;
-            width: 100%;
-            touch-action: pan-y pinch-zoom;
-        }
-        
-        .testimonial-slide {
-            flex: 0 0 100%;
-            min-width: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #d1d5db;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .testimonial-dot.active {
-            background-color: #3b82f6;
-        }
-        
+       .testimonial-slider-container {
+    position: relative;
+}
+
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
+.testimonial-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.testimonial-dot.active {
+    background-color: #3b82f6;
+}
+
         @media (max-width: 768px) {
             .hero-video {
                 display: none;
@@ -292,73 +293,74 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    O QUE MEUS <span class="text-blue-500">ALUNOS DIZEM</span>
-                </h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Resultados reais de pessoas reais
-                </p>
+ <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                O QUE MEUS <span class="text-blue-500">ALUNOS DIZEM</span>
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                Resultados reais de pessoas reais
+            </p>
+        </div>
+
+        <div id="testimonial-slider-container" class="relative max-w-4xl mx-auto overflow-hidden">
+            <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                <div class="testimonial-slide min-w-full px-4">
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <div class="flex items-center mb-6">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Carolina, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-lg">Ana Carolina</h4>
+                                <p class="text-blue-500">6 meses de treino</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Depois de tentar várias academias por conta própria, finalmente encontrei resultados com o Max. Em 4 meses perdi 8kg de gordura e ganhei massa muscular como nunca imaginei possível!"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide min-w-full px-4">
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <div class="flex items-center mb-6">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Juliana Fernandes, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-lg">Juliana Fernandes</h4>
+                                <p class="text-blue-500">8 meses de treino</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Nunca fui de fazer exercícios, mas o método do Max me conquistou. Ele entendeu minha rotina e criou treinos curtos e eficientes. Em 3 meses já via diferença no espelho e na minha disposição!"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide min-w-full px-4">
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <div class="flex items-center mb-6">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Marcos Vinícius, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
+                            <div>
+                                <h4 class="font-bold text-lg">Marcos Vinícius</h4>
+                                <p class="text-blue-500">2 anos de treino</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Como atleta amador, precisava de um treino específico para minha modalidade. O Max desenvolveu um programa perfeito que melhorou meu desempenho em 30% em apenas uma temporada."
+                        </p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="relative max-w-4xl mx-auto" role="region" aria-label="Carrossel de depoimentos">
-                <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out testimonial-slider">
-                    <div class="testimonial-slide min-w-full px-4">
-                        <div class="bg-gray-50 p-8 rounded-xl">
-                            <div class="flex items-center mb-6">
-                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Carolina, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
-                                <div>
-                                    <h4 class="font-bold text-lg">Ana Carolina</h4>
-                                    <p class="text-blue-500">6 meses de treino</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 italic">
-                                "Depois de tentar várias academias por conta própria, finalmente encontrei resultados com o Max. Em 4 meses perdi 8kg de gordura e ganhei massa muscular como nunca imaginei possível!"
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide min-w-full px-4">
-                        <div class="bg-gray-50 p-8 rounded-xl">
-                            <div class="flex items-center mb-6">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Juliana Fernandes, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
-                                <div>
-                                    <h4 class="font-bold text-lg">Juliana Fernandes</h4>
-                                    <p class="text-blue-500">8 meses de treino</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 italic">
-                                "Nunca fui de fazer exercícios, mas o método do Max me conquistou. Ele entendeu minha rotina e criou treinos curtos e eficientes. Em 3 meses já via diferença no espelho e na minha disposição!"
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide min-w-full px-4">
-                        <div class="bg-gray-50 p-8 rounded-xl">
-                            <div class="flex items-center mb-6">
-                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Marcos Vinícius, cliente" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
-                                <div>
-                                    <h4 class="font-bold text-lg">Marcos Vinícius</h4>
-                                    <p class="text-blue-500">2 anos de treino</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 italic">
-                                "Como atleta amador, precisava de um treino específico para minha modalidade. O Max desenvolveu um programa perfeito que melhorou meu desempenho em 30% em apenas uma temporada."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex justify-center mt-8 space-x-2">
-                    <button class="testimonial-dot active" data-index="0" aria-label="Depoimento 1"></button>
-                    <button class="testimonial-dot" data-index="1" aria-label="Depoimento 2"></button>
-                    <button class="testimonial-dot" data-index="2" aria-label="Depoimento 3"></button>
-                </div>
+
+            <div id="testimonial-dots" class="flex justify-center mt-8 space-x-2">
+                <button class="testimonial-dot active" data-index="0" aria-label="Depoimento 1"></button>
+                <button class="testimonial-dot" data-index="1" aria-label="Depoimento 2"></button>
+                <button class="testimonial-dot" data-index="2" aria-label="Depoimento 3"></button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section id="contato" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
@@ -379,207 +381,236 @@
                             <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
                         </div>
                         <div>
-                      <label for="email" class="block text-gray-700 font-medium mb-2">Seu e-mail</label>
-                                                  <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
+                         <label for="email" class="block text-gray-700 font-medium mb-2">Seu e-mail</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-6">
-                    <label for="service" class="block text-gray-700 font-medium mb-2">Serviço de interesse</label>
-                    <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
-                        <option value="">Selecione uma opção</option>
-                        <option value="online">Consultoria Online</option>
-                        <option value="presencial">Consultoria Presencial</option>
-                        <option value="duvida">Dúvida sobre treinos</option>
-                    </select>
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-700 font-medium mb-2">Sua mensagem</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105" aria-label="Enviar mensagem">
-                    Enviar mensagem
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<a href="https://wa.me/5511987654321" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <h3 class="text-xl font-bold mb-2">MAX PERFORMANCE</h3>
-                <p class="text-gray-400">Transformando vidas através do movimento</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="https://instagram.com/maxperformance" class="text-gray-400 hover:text-blue-400 transition" aria-label="Instagram">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Facebook">
-                    <i class="fab fa-facebook text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="YouTube">
-                    <i class="fab fa-youtube text-2xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="TikTok">
-                    <i class="fab fa-tiktok text-2xl"></i>
-                </a>
+                    <div class="mb-6">
+                        <label for="service" class="block text-gray-700 font-medium mb-2">Serviço de interesse</label>
+                        <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="online">Consultoria Online</option>
+                            <option value="presencial">Consultoria Presencial</option>
+                            <option value="duvida">Dúvida sobre treinos</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Sua mensagem</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105" aria-label="Enviar mensagem">
+                        Enviar mensagem
+                    </button>
+                </form>
             </div>
         </div>
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-            <p>© 2023 MAX Performance. Todos os direitos reservados.</p>
-            <p class="mt-2">Consultoria de treinos especializados - Não fornecemos prescrição de dietas ou suplementos.</p>
+    </section>
+
+    <a href="https://wa.me/5511987654321" class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">MAX PERFORMANCE</h3>
+                    <p class="text-gray-400">Transformando vidas através do movimento</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://instagram.com/maxperformance" class="text-gray-400 hover:text-blue-400 transition" aria-label="Instagram">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="Facebook">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="YouTube">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition" aria-label="TikTok">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2023 MAX Performance. Todos os direitos reservados.</p>
+                <p class="mt-2">Consultoria de treinos especializados - Não fornecemos prescrição de dietas ou suplementos.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script>
-    // Função para rolar até a seção
-    function scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // Função para enviar mensagem de consultoria via WhatsApp
-    function sendConsultoriaMessage(tipo) {
-        const numeroWhatsApp = '5511987654321'; // Substitua pelo número real
-        let mensagem;
-
-        if (tipo === 'online') {
-            mensagem = `E aí, Max! 😎 Tô querendo dar um gás no treino com a *Consultoria Online*! Minha rotina é corrida, mas quero resultados de verdade (tipo emagrecer, ganhar músculo ou melhorar a disposição). Pode me contar mais sobre como funciona? Quais são os planos, valores e como começo?`;
-        } else if (tipo === 'presencial') {
-            mensagem = `Fala, Max! 💪 Tô afim de treinar com você na *Consultoria Presencial*! Quero um acompanhamento de perto pra alcançar meus objetivos (emagrecer, ganhar massa ou melhorar o condicionamento). Pode mandar os detalhes? Onde são os treinos, horários disponíveis e como agendo uma avaliação?`;
-        } else {
-            return;
-        }
-
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, '_blank');
-    }
-
-    // Função para enviar mensagem do formulário via WhatsApp
-    function sendFormMessage(event) {
-        event.preventDefault();
-        const numeroWhatsApp = '5511987654321'; // Substitua pelo número real
-        const nome = document.getElementById('name')?.value.trim();
-        const email = document.getElementById('email')?.value.trim();
-        const servico = document.getElementById('service')?.value;
-        const mensagem = document.getElementById('message')?.value.trim();
-
-        // Validação
-        if (!nome || !email || !servico || !mensagem) {
-            alert('Por favor, preencha todos os campos.');
-            return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert('Por favor, insira um e-mail válido.');
-            return;
-        }
-
-        // Mapear opções de serviço
-        const servicoTexto = {
-            online: 'Consultoria Online',
-            presencial: 'Consultoria Presencial',
-            duvida: 'Dúvida sobre treinos'
-        };
-
-        // Gerar mensagem
-        const textoMensagem = `Fala, Max! 😃 Sou *${nome}* e tô interessado em *${servicoTexto[servico]}*. Meu e-mail é ${email}. ${mensagem} Pode me dar um retorno com mais detalhes?`;
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
-        
-        window.open(url, '_blank');
-        document.querySelector('form').reset();
-        alert('Mensagem enviada com sucesso! Você será redirecionado para o WhatsApp.');
-    }
-
-    // Testimonial Slider
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.testimonial-dot');
-    const slider = document.getElementById('testimonial-slider');
-
-    function showTestimonial(index) {
-        if (!slider || !testimonials.length) {
-            return;
-        }
-        
-        if (index >= testimonials.length) {
-            index = 0;
-        } else if (index < 0) {
-            index = testimonials.length - 1;
-        }
-        
-        slider.style.transform = `translateX(-${index * 100}%)`;
-        
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[index]) {
-            dots[index].classList.add('active');
-        }
-        
-        currentTestimonial = index;
-    }
-
-    // Navegação por clique nos pontos
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const index = parseInt(dot.getAttribute('data-index'));
-            showTestimonial(index);
-            clearInterval(autoRotate);
-            autoRotate = setInterval(() => {
-                showTestimonial(currentTestimonial + 1);
-            }, 5000);
-        });
-    });
-
-    // Navegação automática
-    let autoRotate = setInterval(() => {
-        showTestimonial(currentTestimonial + 1);
-    }, 5000);
-
-    // Suporte a swipe e pausa
-    if (slider) {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            clearInterval(autoRotate);
-        });
-
-        slider.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const swipeDistance = touchEndX - touchStartX;
-            if (swipeDistance > 50) {
-                showTestimonial(currentTestimonial - 1); // Swipe para a direita
-            } else if (swipeDistance < -50) {
-                showTestimonial(currentTestimonial + 1); // Swipe para a esquerda
+    <script>
+        // Função para rolar até a seção
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            autoRotate = setInterval(() => {
-                showTestimonial(currentTestimonial + 1);
-            }, 5000);
-        });
+        }
 
-        slider.addEventListener('mouseenter', () => {
-            clearInterval(autoRotate);
-        });
+        // Função para enviar mensagem de consultoria via WhatsApp
+        function sendConsultoriaMessage(tipo) {
+            const numeroWhatsApp = '5511987654321'; // Substitua pelo número real
+            let mensagem;
 
-        slider.addEventListener('mouseleave', () => {
-            autoRotate = setInterval(() => {
-                showTestimonial(currentTestimonial + 1);
-            }, 5000);
-        });
+            if (tipo === 'online') {
+                mensagem = `E aí, Max! 😎 Tô querendo dar um gás no treino com a *Consultoria Online*! Minha rotina é corrida, mas quero resultados de verdade (tipo emagrecer, ganhar músculo ou melhorar a disposição). Pode me contar mais sobre como funciona? Quais são os planos, valores e como começo?`;
+            } else if (tipo === 'presencial') {
+                mensagem = `Fala, Max! 💪 Tô afim de treinar com você na *Consultoria Presencial*! Quero um acompanhamento de perto pra alcançar meus objetivos (emagrecer, ganhar massa ou melhorar o condicionamento). Pode mandar os detalhes? Onde são os treinos, horários disponíveis e como agendo uma avaliação?`;
+            } else {
+                return;
+            }
+
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
+        // Função para enviar mensagem do formulário via WhatsApp
+        function sendFormMessage(event) {
+            event.preventDefault();
+            const numeroWhatsApp = '5511987654321'; // Substitua pelo número real
+            const nome = document.getElementById('name')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const servico = document.getElementById('service')?.value;
+            const mensagem = document.getElementById('message')?.value.trim();
+
+            // Validação
+            if (!nome || !email || !servico || !mensagem) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+
+            // Mapear opções de serviço
+            const servicoTexto = {
+                online: 'Consultoria Online',
+                presencial: 'Consultoria Presencial',
+                duvida: 'Dúvida sobre treinos'
+            };
+
+            // Gerar mensagem
+            const textoMensagem = `Fala, Max! 😃 Sou *${nome}* e tô interessado em *${servicoTexto[servico]}*. Meu e-mail é ${email}. ${mensagem} Pode me dar um retorno com mais detalhes?`;
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
+            
+            window.open(url, '_blank');
+            document.querySelector('form').reset();
+            alert('Mensagem enviada com sucesso! Você será redirecionado para o WhatsApp.');
+        }
+
+        // Testimonial Slider
+        const testimonialSlider = document.getElementById('testimonial-slider');
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+const testimonialDots = document.getElementById('testimonial-dots');
+const dots = testimonialDots.querySelectorAll('.testimonial-dot');
+let currentIndex = 0;
+const slideCount = testimonialSlides.length;
+let autoSlideInterval;
+const autoSlideDelay = 5000; // Tempo em milissegundos para mudar de slide automaticamente
+
+function updateSlider() {
+    const translateValue = -currentIndex * 100 + '%';
+    testimonialSlider.style.transform = `translateX(${translateValue})`;
+    updateDots();
+}
+
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+function goToSlide(index) {
+    if (index >= slideCount) {
+        currentIndex = 0;
+    } else if (index < 0) {
+        currentIndex = slideCount - 1;
+    } else {
+        currentIndex = index;
     }
+    updateSlider();
+    resetAutoSlide();
+}
 
-    // Inicializar
-    if (testimonials.length > 0) {
-        showTestimonial(0);
-    }
-</script>
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        goToSlide(index);
+    });
+});
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        goToSlide(currentIndex + 1);
+    }, autoSlideDelay);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+// Iniciar o carrossel automático
+startAutoSlide();
+updateSlider(); // Exibir o primeiro slide na inicialização
+
+
+        // Navegação por clique nos pontos
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                showTestimonial(index);
+                clearInterval(autoRotate);
+                autoRotate = setInterval(() => {
+                    showTestimonial(currentTestimonial + 1);
+                }, 5000);
+            });
+        });
+
+        // Navegação automática
+        let autoRotate = setInterval(() => {
+            showTestimonial(currentTestimonial + 1);
+        }, 5000);
+
+        // Suporte a swipe e pausa
+        if (slider) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(autoRotate);
+            });
+
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const swipeDistance = touchEndX - touchStartX;
+                if (swipeDistance > 50) {
+                    showTestimonial(currentTestimonial - 1); // Swipe para a direita
+                } else if (swipeDistance < -50) {
+                    showTestimonial(currentTestimonial + 1); // Swipe para a esquerda
+                }
+                autoRotate = setInterval(() => {
+                    showTestimonial(currentTestimonial + 1);
+                }, 5000);
+            });
+
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoRotate);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                autoRotate = setInterval(() => {
+                    showTestimonial(currentTestimonial + 1);
+                }, 5000);
+            });
+        }
+
+        // Inicializar
+        if (testimonials.length > 0) {
+            showTestimonial(0);
+        }
+    </script>
 </body>
 </html>
