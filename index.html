@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAX Performance | Personal Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: '#FDFF00',
+                        dark: '#0a0a0a',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        title: ['Oswald', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@500;600;700&display=swap');
+        
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 4px rgba(253, 255, 0, 0.7);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 9px rgba(253, 255, 0, 0.5);
+        }
+        
+        .hero-image {
+            background-image: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .consultation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(253, 255, 0, 0.3);
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="fixed w-full bg-black/90 backdrop-blur-sm z-50 border-b border-neon/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-neon font-title text-2xl font-bold">MAX</span>
+                <span class="text-white font-title text-2xl ml-1">PERFORMANCE</span>
+            </div>
+            
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-white hover:text-neon transition duration-300 font-medium">Início</a></li>
+                    <li><a href="#about" class="text-white hover:text-neon transition duration-300 font-medium">Sobre</a></li>
+                    <li><a href="#consulting" class="text-white hover:text-neon transition duration-300 font-medium">Consultorias</a></li>
+                    <li><a href="#benefits" class="text-white hover:text-neon transition duration-300 font-medium">Benefícios</a></li>
+                    <li><a href="#testimonials" class="text-white hover:text-neon transition duration-300 font-medium">Depoimentos</a></li>
+                    <li><a href="#contact" class="text-white hover:text-neon transition duration-300 font-medium">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <button class="md:hidden text-neon">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-black z-40 flex items-center justify-center hidden" id="mobileMenu">
+        <button class="absolute top-4 right-4 text-neon text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="text-center space-y-8">
+            <li><a href="#home" class="text-white hover:text-neon text-2xl font-title">Início</a></li>
+            <li><a href="#about" class="text-white hover:text-neon text-2xl font-title">Sobre</a></li>
+            <li><a href="#consulting" class="text-white hover:text-neon text-2xl font-title">Consultorias</a></li>
+            <li><a href="#benefits" class="text-white hover:text-neon text-2xl font-title">Benefícios</a></li>
+            <li><a href="#testimonials" class="text-white hover:text-neon text-2xl font-title">Depoimentos</a></li>
+            <li><a href="#contact" class="text-white hover:text-neon text-2xl font-title">Contato</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-7xl font-title font-bold mb-6 neon-text leading-tight">
+                    TREINOS <span class="text-neon">PERSONALIZADOS</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                    Online ou presencial - Resultados garantidos com metodologia científica
+                </p>
+                <a href="#consulting" class="bg-neon text-black font-bold py-3 px-8 rounded-full inline-block hover:bg-yellow-300 transition duration-300 neon-border">
+                    QUERO MEU TREINO PERSONALIZADO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">SOBRE O TREINADOR</h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-neon rounded-full overflow-hidden border-4 border-neon">
+                            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=725&q=80" 
+                                 alt="Personal Trainer" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-neon text-black py-2 px-4 rounded-full font-bold">
+                            10+ ANOS
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h3 class="text-3xl font-title font-bold mb-4">MAXIMILIANO SILVA</h3>
+                    <p class="text-gray-300 mb-6 text-lg">
+                        Especialista em transformações físicas e performance atlética. Com formação em Educação Física e pós-graduação em Fisiologia do Exercício, minha missão é elevar seu potencial físico através de treinos personalizados e acompanhamento nutricional.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-neon rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-dumbbell text-black"></i>
+                            </div>
+                            <p class="text-gray-300"><span class="text-neon font-bold">Especialidade:</span> Hipertrofia muscular e emagrecimento saudável</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-neon rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-medal text-black"></i>
+                            </div>
+                            <p class="text-gray-300"><span class="text-neon font-bold">Formação:</span> CREF 012345-G/SP</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-neon rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-black"></i>
+                            </div>
+                            <p class="text-gray-300"><span class="text-neon font-bold">Filosofia:</span> "Treino inteligente, resultados extraordinários"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Section -->
+    <section id="consulting" class="py-20 bg-black/50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">MODALIDADES DE TREINO</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Online Consultation -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 consultation-card transition duration-300">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-neon/10 rounded-full flex items-center justify-center border border-neon/30">
+                            <i class="fas fa-laptop text-neon text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-title font-bold text-center mb-4 text-neon">ONLINE</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Treino personalizado via aplicativo com vídeos demonstrativos, acompanhamento semanal e adaptação contínua do programa conforme sua evolução.
+                    </p>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Planilha de treino detalhada
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Acesso exclusivo à plataforma
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Suporte por WhatsApp
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Atualizações mensais
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button onclick="enviarWhatsApp('Olá, quero contratar a consultoria ONLINE!')" 
+        class="bg-neon text-black font-bold py-3 px-6 rounded-full hover:bg-yellow-300 transition duration-300 w-full">
+    ESCOLHER ESTA
+</button>
+                    </div>
+                </div>
+                
+                <!-- In-person Consultation -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 consultation-card transition duration-300">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-neon/10 rounded-full flex items-center justify-center border border-neon/30">
+                            <i class="fas fa-dumbbell text-neon text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-title font-bold text-center mb-4 text-neon">PRESENCIAL</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Treinos individuais com acompanhamento personalizado em academia ou ao ar livre, com equipamentos específicos para potencializar seus resultados.
+                    </p>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Acompanhamento 1:1
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Correção de movimentos
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Avaliação física mensal
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-neon mr-2"></i>
+                            Treino na sua casa ou academia
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button onclick="enviarWhatsApp('Olá, quero contratar a consultoria PRESENCIAL!')" 
+        class="bg-neon text-black font-bold py-3 px-6 rounded-full hover:bg-yellow-300 transition duration-300 w-full">
+    ESCOLHER ESTA
+</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">SEUS BENEFÍCIOS</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Benefit 1 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 benefit-card hover:border-neon/50">
+                    <div class="w-16 h-16 bg-neon/10 rounded-full flex items-center justify-center border border-neon/30 mb-6 mx-auto">
+                        <i class="fas fa-ruler-combined text-neon text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-title font-bold text-center mb-4 text-neon">TREINO SOB MEDIDA</h3>
+                    <p class="text-gray-300 text-center">
+                        Programas completamente personalizados de acordo com seus objetivos, condicionamento físico e disponibilidade.
+                    </p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 benefit-card hover:border-neon/50">
+                    <div class="w-16 h-16 bg-neon/10 rounded-full flex items-center justify-center border border-neon/30 mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-neon text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-title font-bold text-center mb-4 text-neon">RESULTADOS REAIS</h3>
+                    <p class="text-gray-300 text-center">
+                        Metodologia comprovada que já transformou mais de 200 alunos, com acompanhamento constante de evolução.
+                    </p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800 benefit-card hover:border-neon/50">
+                    <div class="w-16 h-16 bg-neon/10 rounded-full flex items-center justify-center border border-neon/30 mb-6 mx-auto">
+                        <i class="fas fa-headset text-neon text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-title font-bold text-center mb-4 text-neon">SUPORTE DIRETO</h3>
+                    <p class="text-gray-300 text-center">
+                        Dúvidas respondidas em até 24h, com orientação sobre treino, nutrição e suplementação quando necessário.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-black/50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">DEPOIMENTOS</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ana Carolina</h4>
+                            <p class="text-neon text-sm">Emagrecimento</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Perdi 18kg em 6 meses com o acompanhamento do Max. Os treinos são desafiadores mas adaptados para meu nível, e o suporte é excelente!"
+                    </p>
+                    <div class="mt-4 text-neon">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ricardo</h4>
+                            <p class="text-neon text-sm">Hipertrofia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Ganhei 8kg de massa muscular em 8 meses. O Max conhece exatamente como extrair o máximo do meu potencial com a metodologia certa."
+                    </p>
+                    <div class="mt-4 text-neon">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Juliana</h4>
+                            <p class="text-neon text-sm">Condicionamento</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Depois de anos sedentária, o Max me ajudou a criar uma rotina de exercícios sustentável. Em 3 meses já sentia diferença no dia a dia!"
+                    </p>
+                    <div class="mt-4 text-neon">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">FALE COMIGO</h2>
+            
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Contact Form -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800">
+                    <h3 class="text-2xl font-title font-bold mb-6 text-neon">ENVIE SUA DÚVIDA</h3>
+                    <form onsubmit="enviarMensagemForm(event)" class="flex flex-col gap-4 max-w-md mx-auto">
+    <input type="text" id="nome" placeholder="Seu nome" class="p-3 rounded bg-gray-800 text-white" required>
+    <input type="email" id="email" placeholder="Seu email" class="p-3 rounded bg-gray-800 text-white" required>
+    <textarea id="mensagem" placeholder="Sua mensagem" class="p-3 rounded bg-gray-800 text-white" required></textarea>
+    <button type="submit" class="bg-neon text-black font-bold py-3 rounded hover:bg-yellow-300 transition duration-300">ENVIAR</button>
+</form>
+                </div>
+                
+                <!-- Direct Contact -->
+                <div class="bg-dark p-8 rounded-xl border border-gray-800">
+                    <h3 class="text-2xl font-title font-bold mb-6 text-neon">CONTATO DIRETO</h3>
+                    <p class="text-gray-300 mb-8">
+                        Prefere falar diretamente? Entre em contato por um dos canais abaixo:
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5511999999999" class="flex items-center bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 transition duration-300">
+                            <div class="w-12 h-12 rounded-full bg-green-700 flex items-center justify-center mr-4">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">WhatsApp</h4>
+                                <p class="text-sm">(11) 99999-9999</p>
+                            </div>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/maxperformance" class="flex items-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg p-4 transition duration-300">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-700 to-pink-700 flex items-center justify-center mr-4">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Instagram</h4>
+                                <p class="text-sm">@maxperformance</p>
+                            </div>
+                        </a>
+                        
+                        <!-- Email -->
+                        <a href="mailto:contato@maxperformance.com" class="flex items-center bg-gray-700 hover:bg-gray-600 text-white rounded-lg p-4 transition duration-300">
+                            <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-sm">contato@maxperformance.com</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <span class="text-neon font-title text-2xl font-bold">MAX</span>
+                        <span class="text-white font-title text-2xl ml-1">PERFORMANCE</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Transformando vidas através do movimento</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-neon transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon transition duration-300">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2023 MAX Performance. Todos os direitos reservados.
+                </p>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-neon text-sm transition duration-300">Termos de Serviço</a>
+                    <a href="#" class="text-gray-400 hover:text-neon text-sm transition duration-300">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function enviarMensagemForm(event) {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const numero = '5511999999999'; // Número do personal
+    const texto = `Mensagem de ${nome} (${email}): ${mensagem}`;
+    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+}
+    function enviarWhatsApp(mensagem) {
+    const numero = '5511999999999'; // Coloque o número do personal com código do país
+    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+}
+        // Mobile menu toggle
+        const menuButton = document.querySelector('header button');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeButton = document.querySelector('#mobileMenu button');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+        
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (mobileMenu.classList.contains('flex')) {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your server
+            // For demo purposes, we'll just show an alert
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
