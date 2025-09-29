@@ -6,58 +6,8 @@
     <title>MAX Performance | Personal Trainer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        neon: '#FDFF00',
-                        dark: '#0a0a0a',
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        title: ['Oswald', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@500;600;700&display=swap');
-        
-        body {
-            background-color: #0a0a0a;
-            color: white;
-            overflow-x: hidden;
-        }
-        
-        .neon-text {
-            text-shadow: 0 0 4px rgba(253, 255, 0, 0.7);
-        }
-        
-        .neon-border {
-            box-shadow: 0 0 9px rgba(253, 255, 0, 0.5);
-        }
-        
-        .hero-image {
-            background-image: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .consultation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(253, 255, 0, 0.3);
-        }
-        
-        .benefit-card {
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: scale(1.05);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body class="font-sans">
     <!-- Header -->
@@ -127,8 +77,8 @@
                     <div class="relative">
                         <div class="w-64 h-64 md:w-80 md:h-80 bg-neon rounded-full overflow-hidden border-4 border-neon">
                             <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=725&q=80" 
-                                 alt="Personal Trainer" 
-                                 class="w-full h-full object-cover">
+                                alt="Personal Trainer"
+                                class="w-full h-full object-cover">
                         </div>
                         <div class="absolute -bottom-4 -right-4 bg-neon text-black py-2 px-4 rounded-full font-bold">
                             10+ ANOS
@@ -302,7 +252,7 @@
                 <div class="bg-dark p-8 rounded-xl border border-gray-800">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            <img src="img/mulher.jpg" alt="Cliente" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Ana Carolina</h4>
@@ -325,7 +275,7 @@
                 <div class="bg-dark p-8 rounded-xl border border-gray-800">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            <img src="img/homem.jpg" alt="Cliente" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Ricardo</h4>
@@ -348,7 +298,7 @@
                 <div class="bg-dark p-8 rounded-xl border border-gray-800">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="w-full h-full object-cover">
+                            <img src="img/mulher.jpg" alt="Cliente" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold">Juliana</h4>
@@ -375,7 +325,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-title font-bold text-center mb-16 neon-text">FALE COMIGO</h2>
             
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Contact Form -->
                 <div class="bg-dark p-8 rounded-xl border border-gray-800">
                     <h3 class="text-2xl font-title font-bold mb-6 text-neon">ENVIE SUA DÚVIDA</h3>
@@ -467,68 +417,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-    function enviarMensagemForm(event) {
-    event.preventDefault();
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const mensagem = document.getElementById('mensagem').value;
-    const numero = '5511999999999'; // Número do personal
-    const texto = `Mensagem de ${nome} (${email}): ${mensagem}`;
-    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
-}
-    function enviarWhatsApp(mensagem) {
-    const numero = '5511999999999'; // Coloque o número do personal com código do país
-    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-}
-        // Mobile menu toggle
-        const menuButton = document.querySelector('header button');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeButton = document.querySelector('#mobileMenu button');
-        
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        });
-        
-        closeButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('flex');
-            mobileMenu.classList.add('hidden');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (mobileMenu.classList.contains('flex')) {
-                    mobileMenu.classList.remove('flex');
-                    mobileMenu.classList.add('hidden');
-                }
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Here you would normally send the form data to your server
-            // For demo purposes, we'll just show an alert
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
-        });
-    </script>
 </body>
 </html>
