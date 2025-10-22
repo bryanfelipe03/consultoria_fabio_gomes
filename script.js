@@ -18,13 +18,13 @@ event.preventDefault();
 const nome = document.getElementById('nome').value;
 const email = document.getElementById('email').value;
 const mensagem = document.getElementById('mensagem').value;
-const numero = '5511999999999'; // Número do personal
+const numero = '55199844151519'; // Número do personal
 const texto = `Mensagem de ${nome} (${email}): ${mensagem}`;
 const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(texto)}`;
 window.open(url, '_blank');
 }
 function enviarWhatsApp(mensagem) {
-const numero = '5511999999999'; // Coloque o número do personal com código do país
+const numero = '5519984415151'; // Coloque o número do personal com código do país
 const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensagem)}`;
 window.open(url, '_blank');
 }
